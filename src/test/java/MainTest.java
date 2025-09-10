@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.lang.reflect.Field;
+import java.util.Locale; // Locale import edildi
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -69,7 +70,7 @@ public class MainTest {
     @Test
     public void testCylinderAccessModifiers() throws NoSuchFieldException {
         Field heightField = cylinder.getClass().getDeclaredField("height");
-        assertEquals(2, heightField.getModifiers()); // 2 = private
+        assertEquals(2, heightField.getModifiers());
     }
 
     @DisplayName("Cylinder sınıfı ve değişkenleri doğru type a sahip mi ?")
@@ -104,7 +105,7 @@ public class MainTest {
     @DisplayName("getArea methodu Rectangle sınıfında doğru çalışıyor mu?")
     @Test
     public void testGetAreaRectangle() {
-        assertEquals("2.00", String.format("%.2f", rectangle.getArea()));
+        assertEquals("2.00", String.format(Locale.US, "%.2f", rectangle.getArea()));
     }
 
     @DisplayName("Cuboid sınıf değişkenleri doğru access modifier a sahip mi ?")
@@ -124,7 +125,7 @@ public class MainTest {
     @DisplayName("getVolume methodu Cuboid sınıfında doğru çalışıyor mu?")
     @Test
     public void testGetVolumeRectangle() {
-        assertEquals("6.00", String.format("%.2f", cuboid.getVolume()));
+        assertEquals("6.00", String.format(Locale.US, "%.2f", cuboid.getVolume()));
     }
 
     @DisplayName("Employee sınıf değişkenleri doğru access modifier a sahip mi ?")
